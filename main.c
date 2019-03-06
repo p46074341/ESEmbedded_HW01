@@ -9,9 +9,17 @@ int main()
 {
 	int a, c;
 	char b;
+	typedef int func(int,int);
+	func *p[4]={plus, minus, multiply, divided};
+	char* op[4]={'+','-','*','/'};
 	printf("key a Function \nEX: 1 + 1\n");
 	scanf("%i %c %i", &a, &b, &c);
-	//IF ELSE IF
+	for(int i=0;i<4;i++)
+		{ 
+		if(b==op[i])
+			printf("%d %c %d = %d\n", a, b, c, p[i](a, c));
+		}
+	/*
 	if (b == '+')
 		printf("%d %c %d = %d\n", a, b, c, plus(a, c));
 	else if (b == '-')
@@ -20,4 +28,5 @@ int main()
 		printf("%d %c %d = %d\n", a, b, c, multiply(a, c));
 	else if (b == '/')
 		printf("%d %c %d = %d\n", a, b, c, divided(a, c));
+	*/
 }
